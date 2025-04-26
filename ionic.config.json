@@ -1,0 +1,7 @@
+{
+  "name": "igra",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
