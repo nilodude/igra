@@ -26,8 +26,8 @@
   <!-- text input & camera button -->
   <ion-fab class="textToolbar flex ion-justify-content-around ion-align-items-center" vertical="bottom" horizontal="end" slot="fixed">
     <ion-item class="textInput">
-      <ion-textarea label="New message" labelPlacement="floating" placeholder="Type something here"
-       (keypress)="addNewMsg($event)" enterkeyhint="send"></ion-textarea>
+      <ion-textarea id="textarea" inputmode="text" label="New message" labelPlacement="floating" placeholder="Type something here"
+       (keypress)="addNewMsg($event)" enterkeyhint="send" autofocus="true" autoGrow="true"></ion-textarea>
     </ion-item>
     <ion-fab-button (click)="addPhotoToGallery()">
       <ion-icon name="camera"></ion-icon>
