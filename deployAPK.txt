@@ -1,0 +1,8 @@
+ionic capacitor build android
+
+al terminar ese comando, se abre automaticamente el android studio
+
+en android studio:
+Build -> Generate App Bundles or APKs -> Generate APKs 
+
+se genera en "D:\desarrollo\angular\ionic\igra\android\app\build\outputs\apk\debug"
