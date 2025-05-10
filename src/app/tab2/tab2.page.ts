@@ -7,7 +7,7 @@ import { PhotoService } from '../services/photo.service';
   standalone: false,
 })
 export class Tab2Page {
-
+  currentMsg: string = ''
   constructor(public photoService: PhotoService) {}
 
   async ngOnInit() {
@@ -18,11 +18,18 @@ export class Tab2Page {
     this.photoService.addNewToGallery();
   }
 
-  addNewMsg(event: any){
-    let msg = event.target.value as string
-    if(event.key == 'Enter'){
-      this.photoService.addNewMsg(msg);
+  inputMsg(event: any){
+    console.log(event.target.value)
+    this.currentMsg = event.target.value.replace('\\n','') as string
+    
+    if(event.key == 'Enter' && this.currentMsg != ''){
+      this.addNewMsg()
     }
     
+  }
+
+  addNewMsg(){
+    this.photoService.addNewMsg(this.currentMsg);
+    this.currentMsg = ''
   }
 }

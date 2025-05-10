@@ -16,7 +16,7 @@
     </ion-row>
   </ion-grid>
   <ion-grid >
-    <ion-row>
+    <ion-row class="scroll-y">
       <ion-col size="12" *ngFor="let message of photoService.messages; index as position">
         {{message.date |date : "HH:mm" }} {{message.content}}
       </ion-col>
@@ -25,9 +25,13 @@
  
   <!-- text input & camera button -->
   <ion-fab class="textToolbar flex ion-justify-content-around ion-align-items-center" vertical="bottom" horizontal="end" slot="fixed">
-    <ion-item class="textInput">
-      <ion-textarea id="textarea" inputmode="text" label="New message" labelPlacement="floating" placeholder="Type something here"
-       (keypress)="addNewMsg($event)" enterkeyhint="send" autofocus="true" autoGrow="true"></ion-textarea>
+    <ion-item class="textInput" lines="none" inset="false" >
+      <ion-textarea  inputmode="text" label="New message" labelPlacement="floating" placeholder="Type something here"
+       (keypress)="inputMsg($event)" [(ngModel)]="currentMsg" enterkeyhint="send" autofocus="true" autoGrow="true">
+       <ion-fab-button class="sendBtn" (click)="this.currentMsg != '' && addNewMsg()">
+          <ion-icon name="send"></ion-icon>
+        </ion-fab-button>
+      </ion-textarea>
     </ion-item>
     <ion-fab-button (click)="addPhotoToGallery()">
       <ion-icon name="camera"></ion-icon>

@@ -44,11 +44,26 @@
     }
 }
 
+.scroll-y{
+    overflow-y: scroll;
+    max-height: 50vh;
+}
+
 .textToolbar{
     width:100%;
     .textInput{
         width:100%;
         border-radius: 5px;
-        margin-inline: 1em;
+        margin-inline: 1em 0.5em;
+        textarea{
+            margin:0;
+        }
+        .sendBtn{
+            position: absolute;
+            right:0;
+            top:50%;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
     }
 }
