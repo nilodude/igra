@@ -9,8 +9,10 @@ import { Platform } from '@ionic/angular';
   providedIn: 'root'
 })
 export class PhotoService {
+  public messages: any[] = []
   public photos: UserPhoto[] = [];
   private PHOTO_STORAGE: string = 'photos';
+  private MESSAGE_STORAGE: string = 'messages';
   private platform: Platform;
 
   constructor(platform: Platform) {
@@ -111,8 +113,20 @@ export class PhotoService {
     };
     reader.readAsDataURL(blob);
   });
+
+  public async addNewMsg(msg: string){
+    let newMsg = {content: msg, date:new Date()} as UserMessage
+
+    this.messages.push(newMsg)
+  }
 }
+
 export interface UserPhoto {
   filepath: string;
   webviewPath?: string;
+}
+
+export interface UserMessage {
+  content: string;
+  date: Date;
 }

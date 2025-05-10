@@ -17,4 +17,12 @@ export class Tab2Page {
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
   }
+
+  addNewMsg(event: any){
+    let msg = event.target.value as string
+    if(event.key == 'Enter'){
+      this.photoService.addNewMsg(msg);
+    }
+    
+  }
 }

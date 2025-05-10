@@ -8,10 +8,17 @@
 
 <ion-content [fullscreen]="true">
   <!-- uploaded photo gallery -->
-  <ion-grid>
+  <ion-grid >
     <ion-row>
-      <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+      <ion-col size="2" *ngFor="let photo of photoService.photos; index as position">
         <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid >
+    <ion-row>
+      <ion-col size="12" *ngFor="let message of photoService.messages; index as position">
+        {{message.date |date : "HH:mm" }} {{message.content}}
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -19,7 +26,8 @@
   <!-- text input & camera button -->
   <ion-fab class="textToolbar flex ion-justify-content-around ion-align-items-center" vertical="bottom" horizontal="end" slot="fixed">
     <ion-item class="textInput">
-      <ion-textarea label="KEDISE" placeholder="Type something here"></ion-textarea>
+      <ion-textarea label="New message" labelPlacement="floating" placeholder="Type something here"
+       (keypress)="addNewMsg($event)" enterkeyhint="send"></ion-textarea>
     </ion-item>
     <ion-fab-button (click)="addPhotoToGallery()">
       <ion-icon name="camera"></ion-icon>
