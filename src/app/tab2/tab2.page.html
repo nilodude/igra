@@ -7,11 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- uploaded photo gallery -->
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
@@ -19,13 +15,16 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+ 
+  <!-- text input & camera button -->
+  <ion-fab class="textToolbar flex ion-justify-content-around ion-align-items-center" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-item class="textInput">
+      <ion-textarea label="KEDISE" placeholder="Type something here"></ion-textarea>
+    </ion-item>
     <ion-fab-button (click)="addPhotoToGallery()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
 
-  <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>
